@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: predefined-scoring-systems
+      author: 41k
+      changes:
+        - sql:
+            sql: INSERT INTO scoring_systems (id, owner_id, name, participation_points, qualification_points, points, participants_after_qualification, active) VALUES
+              (
+                '1',
+                'predefined',
+                'Drift Masters',
+                1,
+                '7,6,5,4,4,4,4,3,3,3,3,3,3,3,3,2',
+                '100,80,64,64,48,48,48,48,32,32,32,32,32,32,32,32,16',
+                32,
+                1
+              ),
+              (
+                '2',
+                'predefined',
+                'Racing.by - 24',
+                0,
+                '10,8,5,4,4,4,4,3,3,3,3,3,3,3,3,1',
+                '100,90,78,65,48,48,48,48,16,16,16,16,8,8,8,8,0',
+                24,
+                1
+              ),
+              (
+                '3',
+                'predefined',
+                'Racing.by - 32',
+                0,
+                '10,8,5,4,4,4,4,3,3,3,3,3,3,3,3,1',
+                '100,90,78,65,48,48,48,48,32,32,32,32,32,32,32,32,16',
+                32,
+                1
+              ),
+              (
+                '4',
+                'predefined',
+                'FIA',
+                0,
+                '25,21,19,17,12,12,9,9,6,6,6,6,4,4,4,4,2,2,2,2,2,2,2,2,1',
+                '210,185,160,135,110,110,110,110,80,80,80,80,80,80,80,80,40',
+                32,
+                1
+              );

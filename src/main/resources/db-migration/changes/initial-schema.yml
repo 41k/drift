@@ -1,0 +1,387 @@
+databaseChangeLog:
+  - changeSet:
+      id: initial-schema
+      author: 41k
+      changes:
+
+
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  email
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+                    - unique: true
+              - column:
+                  name:  password
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  first_name
+                  type:  varchar(255)
+              - column:
+                  name:  last_name
+                  type:  varchar(255)
+              - column:
+                  name:  country_code
+                  type:  varchar(255)
+              - column:
+                  name:  city
+                  type:  varchar(255)
+              - column:
+                  name:  image
+                  type:  varchar(255)
+              - column:
+                  name:  verification_code
+                  type:  varchar(255)
+              - column:
+                  name:  active
+                  type:  int
+                  constraints:
+                    - nullable: false
+
+
+        - createTable:
+            tableName: cars
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  owner_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  brand
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  model
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  power
+                  type:  double
+              - column:
+                  name:  image
+                  type:  varchar(255)
+              - column:
+                  name:  active
+                  type:  int
+                  constraints:
+                    - nullable: false
+
+
+        - createTable:
+            tableName: organisations
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  owner_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  name
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+                    - unique: true
+              - column:
+                  name:  description
+                  type:  varchar(255)
+              - column:
+                  name:  image
+                  type:  varchar(255)
+              - column:
+                  name:  active
+                  type:  int
+                  constraints:
+                    - nullable: false
+
+
+        - createTable:
+            tableName: scoring_systems
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  owner_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  name
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+                    - unique: true
+              - column:
+                  name:  participation_points
+                  type:  double
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  qualification_points
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  points
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  participants_after_qualification
+                  type:  int
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  active
+                  type:  int
+                  constraints:
+                      - nullable: false
+
+
+        - createTable:
+            tableName: championships
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  owner_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  organisation_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  discipline
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  scoring_system_id
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  active
+                  type:  int
+                  constraints:
+                      - nullable: false
+
+
+        - createTable:
+            tableName: championship_stages
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  owner_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  championship_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  name
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  duration
+                  type:  int
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  start_timestamp
+                  type:  timestamp
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  location
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  description
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  participation_info
+                  type:  varchar(255)
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  attempts
+                  type:  int
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  omt
+                  type:  int
+                  constraints:
+                      - nullable: false
+              - column:
+                  name:  placard_image
+                  type:  varchar(255)
+              - column:
+                  name:  phase
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  active
+                  type:  int
+                  constraints:
+                    - nullable: false
+
+
+        - createTable:
+            tableName: championship_stage_participants
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  championship_stage_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  user_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  qualification_results
+                  type:  varchar(255)
+
+
+        - createTable:
+            tableName: championship_stage_judges
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  championship_stage_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  user_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+
+
+        - createTable:
+            tableName: trainings
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  owner_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  organisation_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  discipline
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  name
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  start_timestamp
+                  type:  timestamp
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  location
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  participation_info
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  placard_image
+                  type:  varchar(255)
+              - column:
+                  name:  active
+                  type:  int
+                  constraints:
+                    - nullable: false
+
+
+        - createTable:
+            tableName: training_participants
+            columns:
+              - column:
+                  name:  id
+                  type:  varchar(255)
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name:  training_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name:  user_id
+                  type:  varchar(255)
+                  constraints:
+                    - nullable: false
